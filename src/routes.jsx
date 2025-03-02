@@ -8,6 +8,7 @@ import Transactions from './pages/Transactions';
 import Accounts from './pages/Accounts';
 import Insights from './pages/Insights';
 import Settings from './pages/Settings';
+import Import from './pages/Import'; // New Import page
 import Error from './pages/Error';
 
 const AppRoutes = () => {
@@ -23,6 +24,7 @@ const AppRoutes = () => {
         <Route path="/transactions" element={<Transactions />} />
         <Route path="/accounts" element={<Accounts />} />
         <Route path="/insights" element={<Insights />} />
+        <Route path="/import" element={<Import />} /> {/* New Import route */}
         <Route path="/settings" element={<Settings />} />
       </Route>
       
