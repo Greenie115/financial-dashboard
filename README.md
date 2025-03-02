@@ -1,70 +1,157 @@
-# Getting Started with Create React App
+# Financial Dashboard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, responsive financial dashboard application for visualizing and managing personal finances with Starling Bank and American Express integration.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Authentication System**
+  - Secure login and registration
+  - Protected routes for authenticated users
+  - Token-based authentication
 
-### `npm start`
+- **Dashboard Overview**
+  - Account balances and summaries
+  - Spending breakdown by category
+  - Spending trends over time
+  - Recent transactions
+  - Personalized financial insights
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Transaction Management**
+  - Complete transaction history with filtering
+  - Detailed transaction views
+  - Transaction search and categorization
+  - Spending analytics by merchant
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Account Management**
+  - Bank and credit card accounts overview
+  - Balance tracking
+  - Account-specific insights
+  - Account linking capability
 
-### `npm test`
+- **Financial Insights**
+  - Spending analysis with visualizations
+  - Income vs. expenses tracking
+  - Budget monitoring
+  - Personalized savings recommendations
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Settings**
+  - Profile management
+  - Security settings
+  - Notification preferences
+  - Application preferences
 
-### `npm run build`
+## Technology Stack
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Frontend**
+  - React.js - Component-based UI library
+  - React Router - Navigation and routing
+  - Context API - State management
+  - Tailwind CSS - Utility-first CSS framework
+  - Recharts - Data visualization library
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **APIs**
+  - Starling Bank API - For bank account integration
+  - American Express API - For credit card integration
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Project Structure
 
-### `npm run eject`
+```
+financial-dashboard/
+├── public/               # Static assets
+├── src/
+│   ├── api/              # API integration modules
+│   │   ├── amex.js       # Amex API client
+│   │   ├── starling.js   # Starling API client
+│   │   └── index.js      # Unified API interface
+│   ├── components/       # Reusable UI components
+│   │   ├── common/       # Shared UI elements
+│   │   ├── auth/         # Authentication components
+│   │   ├── dashboard/    # Dashboard components
+│   │   └── layout/       # Layout components
+│   ├── contexts/         # React context providers
+│   ├── hooks/            # Custom React hooks
+│   ├── pages/            # Page components
+│   ├── utils/            # Utility functions
+│   ├── App.jsx           # Main application component
+│   └── index.jsx         # Application entry point
+└── package.json          # Project dependencies
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Getting Started
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Prerequisites
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Node.js (v14 or later)
+- npm or yarn
+- Starling Developer Account (for API access)
+- American Express Developer Account (for API access)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Installation
 
-## Learn More
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/financial-dashboard.git
+   cd financial-dashboard
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn
+   ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+3. Create a `.env` file in the root directory with your API keys:
+   ```
+   REACT_APP_STARLING_CLIENT_ID=your_starling_client_id
+   REACT_APP_STARLING_CLIENT_SECRET=your_starling_client_secret
+   REACT_APP_AMEX_CLIENT_ID=your_amex_client_id
+   REACT_APP_AMEX_CLIENT_SECRET=your_amex_client_secret
+   ```
 
-### Code Splitting
+4. Start the development server:
+   ```bash
+   npm start
+   # or
+   yarn start
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+5. Open [http://localhost:3000](http://localhost:3000) to view the application in your browser.
 
-### Analyzing the Bundle Size
+### Using Mock Data
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+The application can run with mock data without requiring actual API credentials. To use mock data:
 
-### Making a Progressive Web App
+1. Make sure the `.env` file doesn't contain API credentials, or use the mock data explicitly in your code.
+2. The mock data provides realistic financial transactions and account information for testing and development.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Deployment
 
-### Advanced Configuration
+To build the application for production:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```bash
+npm run build
+# or
+yarn build
+```
 
-### Deployment
+The build artifacts will be stored in the `build/` directory and can be deployed to your preferred hosting provider.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Security Considerations
 
-### `npm run build` fails to minify
+- Never commit your API keys to version control
+- Always use environment variables for sensitive information
+- Implement proper token refresh mechanisms for production
+- For production, handle API authentication on the backend to protect client secrets
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/my-feature`
+3. Commit your changes: `git commit -am 'Add new feature'`
+4. Push to the branch: `git push origin feature/my-feature`
+5. Submit a pull request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
